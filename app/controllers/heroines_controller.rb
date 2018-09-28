@@ -2,7 +2,12 @@ class HeroinesController < ApplicationController
 
 
   def index
-    @heroines = Heroine.all
+    byebug
+    if params[:search] && params[:search] != ""
+      @heroines = Heroine.filter_by_power(params[:search])
+    else
+      @heroines = Heroine.all
+    end
   end
 
   def show
