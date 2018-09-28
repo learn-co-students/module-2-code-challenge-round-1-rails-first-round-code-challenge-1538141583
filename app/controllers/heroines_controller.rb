@@ -4,6 +4,7 @@ class HeroinesController < ApplicationController
    if params[:power_name]
       power = Power.find_by(name: params[:power_name])
       if power == nil
+          # byebug
           @heroines = Heroine.all
       else
           @heroines = Heroine.where('power_id LIKE ?', "%#{power.id}%")
