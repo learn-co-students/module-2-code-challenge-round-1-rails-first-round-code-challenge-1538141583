@@ -1,10 +1,27 @@
-<h2>All Heroines</h2>
+
+<h1>Super Heroines!</h1>
 
 <ul>
+  <% if @heroines.empty? %>
+    <p>There are no heroines to display here!</p>
+  <% end %>
   <% @heroines.each do |heroine| %>
     <li>
-      <%= heroine.super_name %>
+      <%= link_to heroine.super_name, heroine_path(heroine) %>
     </li>
     <br>
   <% end %>
 </ul>
+
+<h2>Filter Heroines by Power</h2>
+
+<%= form_tag("/heroines", method: "get") do %>
+  <%= select_tag "powers", options_from_collection_for_select(@powers, "id", "name"), include_blank: true %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<br>
+
+<h3><%=link_to "Create a New Heroine!", new_heroine_path%></h3>
+
+<h3><%=link_to "View Powers Instead?", powers_path%></h3>

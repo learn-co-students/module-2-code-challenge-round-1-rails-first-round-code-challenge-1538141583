@@ -1,0 +1,7 @@
+<h1>Edit a Power</h1>
+
+<%= form_for @power do |f| %>
+  <p>Name: <%= f.text_field :name %></p>
+  <p>Description: <%= f.text_area :description %></p>
+  <%= f.submit %>
+<% end %>
