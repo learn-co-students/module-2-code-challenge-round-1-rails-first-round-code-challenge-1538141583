@@ -1,0 +1,26 @@
+~ MAKE A NEW HEROINE ~
+<br><br>
+<% if @heroine.errors.any? %>
+Sorry! There were some errors in your form:<br><br>
+<% @heroine.errors.full_messages.each do |message| %>
+<%= message.upcase %> <br><br>
+<% end %>
+<% end %>
+
+<%= form_for @heroine do |f| %>
+
+<%= f.label :name %><br>
+<%= f.text_field :name %><br><br>
+
+<% if @heroine.errors[:super_name].any? %>
+<%= "SUPERNAME ERROR:"%>
+<%= f.text_field :super_name %>
+<% else %>
+<%= f.label :super_name %><br>
+<%= f.text_field :super_name %>
+<% end %><br><br>
+
+<%= f.collection_select :power_id, Power.all, :id, :name %><br><br>
+
+<%= f.submit %>
+<% end %>
