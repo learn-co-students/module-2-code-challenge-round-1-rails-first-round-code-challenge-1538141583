@@ -1,0 +1,14 @@
+<h1>Make Your Own Superheroine!</h1>
+<h2>#GirlPower</h2>
+
+<%= form_for @heroine do |f| %>
+  <p>Secret Identity: <%= f.text_field :name %></p>
+  <p>Super Name: <%=f.text_field :super_name%></p>
+  <p>Choose a Power: <%= f.collection_select :power_id, @powers, :id, :name %></p>
+  <p>Image URL: <%= f.text_field :img_url %></p>
+  <%= f.submit %>
+<% end %>
+
+<br>  
+
+<h3><%=link_to "Return to Index Instead", heroines_path%></h3>
