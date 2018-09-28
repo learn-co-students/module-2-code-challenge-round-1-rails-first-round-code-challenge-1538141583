@@ -2,7 +2,7 @@ class HeroinesController < ApplicationController
 
 
   def index
-    byebug
+
     if params[:search] && params[:search] != ""
       @heroines = Heroine.filter_by_power(params[:search])
     else
@@ -19,7 +19,7 @@ class HeroinesController < ApplicationController
   end
 
   def create
-    byebug
+    
     @heroine = Heroine.new(heroine_params)
     if @heroine.save
       redirect_to heroine_path(@heroine)
