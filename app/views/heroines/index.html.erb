@@ -4,6 +4,9 @@
   <%= text_field_tag(:search) %>
   <%= submit_tag("Search") %>
 <%end%>
+<br>
+
+
 
 <ul>
   <% @heroines.each do |heroine| %>
@@ -13,3 +16,7 @@
     <br>
   <% end %>
 </ul>
+
+<%= form_tag("/heroines/new", method: "get") do %>
+  <%= submit_tag("Create New Heroine") %>
+<%end%>
