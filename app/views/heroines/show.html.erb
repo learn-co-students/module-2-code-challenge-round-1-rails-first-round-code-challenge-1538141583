@@ -1,0 +1,7 @@
+~ <%= @heroine.name.upcase %> SHOW PAGE ~
+<br><br>
+name: <%= @heroine.name.upcase %><br>
+super name: <%= @heroine.super_name.upcase %><br>
+superpower: <%= link_to @heroine.power.name.upcase, power_path(@heroine.power) %>
+<br><br>
+<%= link_to "back to all heroines", heroines_path %>
